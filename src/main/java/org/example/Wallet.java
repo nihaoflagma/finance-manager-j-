@@ -19,7 +19,7 @@ public class Wallet {
         this.budgets = new HashMap<>();
     }
 
-    // Добавляем метод для получения баланса
+    
     public double getBalance() {
         return balance;
     }

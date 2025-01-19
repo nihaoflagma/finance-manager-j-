@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Основная информация о проекте -->
+    <groupId>com.example</groupId> <!-- Укажите ваш идентификатор группы -->
+    <artifactId>finance-manager</artifactId> <!-- Название проекта -->
+    <version>1.0-SNAPSHOT</version> <!-- Версия проекта -->
+
+    <!-- Укажите версию JDK -->
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source> <!-- Версия Java -->
+        <maven.compiler.target>17</maven.compiler.target> <!-- Целевая версия Java -->
+    </properties>
+
+    <!-- Зависимости -->
+    <dependencies>
+        <!-- Для работы с JSON -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20210307</version>
+        </dependency>
+
+        <!-- Для тестирования -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- Плагины и репозитории -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+            </plugin>
+
+            <!-- Плагин для запуска программы -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>org.example.Main</mainClass> <!-- Укажите главный класс вашей программы -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

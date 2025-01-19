@@ -1,0 +1,16 @@
+{
+    "balance": 800,
+    "budgets": {"food": 500},
+    "transactions": [
+        {
+            "amount": 1000,
+            "type": "income",
+            "category": "salary"
+        },
+        {
+            "amount": 200,
+            "type": "expense",
+            "category": "food"
+        }
+    ]
+}

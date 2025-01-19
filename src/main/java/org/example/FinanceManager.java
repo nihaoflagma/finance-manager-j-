@@ -4,15 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FinanceManager {
-    private Map<String, User> users;  // Словарь пользователей по имени пользователя
-    private User loggedInUser;        // Текущий вошедший пользователь
+    private Map<String, User> users;  
+    private User loggedInUser;        
 
     public FinanceManager() {
         users = new HashMap<>();
         loggedInUser = null;
     }
 
-    // Регистрация нового пользователя
+    
     public void register(String username, String password) {
         if (users.containsKey(username)) {
             throw new IllegalArgumentException("Пользователь с таким именем уже существует.");
@@ -22,7 +22,7 @@ public class FinanceManager {
         System.out.println("Пользователь " + username + " успешно зарегистрирован.");
     }
 
-    // Логин пользователя
+  
     public void login(String username, String password) {
         User user = users.get(username);
         if (user == null) {
@@ -35,7 +35,7 @@ public class FinanceManager {
         System.out.println("Пользователь " + username + " успешно вошел в систему.");
     }
 
-    // Логаут (выход из системы)
+   
     public void logout() {
         if (loggedInUser == null) {
             System.out.println("Вы не вошли в систему.");
@@ -45,7 +45,7 @@ public class FinanceManager {
         loggedInUser = null;
     }
 
-    // Обработка команд
+    
     public void processCommand(String[] command) {
         if (loggedInUser == null) {
             System.out.println("Пожалуйста, войдите в систему.");
@@ -98,13 +98,13 @@ public class FinanceManager {
         }
     }
 
-    // Перевод средств между пользователями
+    
     public void transfer(String fromUsername, String toUsername, double amount, String category) {
         if (loggedInUser == null) {
             throw new IllegalArgumentException("Вы не вошли в систему.");
         }
 
-        // Получаем кошельки пользователей
+        
         User fromUser = users.get(fromUsername);
         User toUser = users.get(toUsername);
 
@@ -115,15 +115,15 @@ public class FinanceManager {
             throw new IllegalArgumentException("Пользователь с именем " + toUsername + " не найден.");
         }
 
-        // Проверяем, достаточно ли средств у отправителя
+        
         Wallet fromWallet = fromUser.getWallet();
         if (fromWallet.getBalance() < amount) {
             throw new IllegalArgumentException("Недостаточно средств на балансе отправителя.");
         }
 
-        // Переводим деньги
-        fromWallet.addExpense(category, amount);  // Снимаем деньги с отправителя
-        toUser.getWallet().addIncome(category, amount);  // Зачисляем деньги получателю
+       
+        fromWallet.addExpense(category, amount);  
+        toUser.getWallet().addIncome(category, amount);  
 
         System.out.printf("Переведено %.2f из категории %s от пользователя %s к пользователю %s.%n",
                 amount, category, fromUsername, toUsername);

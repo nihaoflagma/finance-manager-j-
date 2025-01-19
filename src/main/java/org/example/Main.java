@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Создание объекта для менеджера финансов
+        
         FinanceManager manager = new FinanceManager();
         Scanner scanner = new Scanner(System.in);
 
@@ -12,7 +12,7 @@ public class Main {
 
         while (true) {
             try {
-                // Ввод команды от пользователя
+                
                 System.out.print("Введите команду: ");
                 String input = scanner.nextLine();
                 String[] command = input.split(" ");

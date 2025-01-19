@@ -3,9 +3,9 @@ package org.example;
 import org.json.JSONObject;
 
 public class Transaction {
-    private String type; // Тип: доход или расход
-    private String category; // Категория (например, еда, транспорт)
-    private double amount; // Сумма
+    private String type; 
+    private String category; 
+    private double amount; 
 
     public Transaction(String type, String category, double amount) {
         if (amount <= 0) {
